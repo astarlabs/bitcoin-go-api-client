@@ -1,3 +1,3 @@
 package services
 
-const APIAddress string = "http://bitcoinapi.astarlabs.co/v2"
+const APIAddress string = "dev.astar.tech:8085/v2"

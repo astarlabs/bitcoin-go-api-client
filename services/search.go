@@ -11,8 +11,7 @@ import (
 	"github.com/regcostajr/pktoken"
 )
 
-type Search struct {
-}
+type Search struct{}
 
 // SearchByRegisteredID ...
 func (search Search) SearchByRegisteredID(param params.SearchByRegisteredIDParams) (*result.Transaction, error) {
