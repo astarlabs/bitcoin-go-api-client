@@ -1,0 +1,3 @@
+package: github.com/astarlabs/go-bitcoin-api-client
+import:
+- package: github.com/regcostajr/pktoken

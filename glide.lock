@@ -1,0 +1,6 @@
+hash: b212d2cb5d19b5cad2ee2355203dc1d0773218bad26b301cc69ec70073184cec
+updated: 2017-03-28T13:57:57.134533161-03:00
+imports:
+- name: github.com/regcostajr/pktoken
+  version: 18fd1d3cb3f5ab5d9a40ed06d2315f94f83324db
+testImports: []
