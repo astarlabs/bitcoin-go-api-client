@@ -1,7 +1,7 @@
 package samples
 
-import "github.com/astarlabs/go-bitcoin-api-client/services"
-import "github.com/astarlabs/go-bitcoin-api-client/dto/params"
+import "github.com/astarlabs/bitcoin-go-api-client/services"
+import "github.com/astarlabs/bitcoin-go-api-client/dto/params"
 import "fmt"
 
 type SearchSample struct {

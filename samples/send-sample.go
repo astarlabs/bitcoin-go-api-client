@@ -3,8 +3,8 @@ package samples
 import (
 	"fmt"
 
-	"github.com/astarlabs/go-bitcoin-api-client/dto/params"
-	"github.com/astarlabs/go-bitcoin-api-client/services"
+	"github.com/astarlabs/bitcoin-go-api-client/dto/params"
+	"github.com/astarlabs/bitcoin-go-api-client/services"
 )
 
 type SendSample struct {

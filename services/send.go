@@ -5,9 +5,8 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/astarlabs/go-bitcoin-api-client/dto/params"
-	"github.com/astarlabs/go-bitcoin-api-client/dto/result"
-	"github.com/astarlabs/go-bitcoin-api-client/http"
+	"github.com/astarlabs/bitcoin-go-api-client/dto/params"
+	"github.com/astarlabs/bitcoin-go-api-client/dto/result"
 
 	"strconv"
 
