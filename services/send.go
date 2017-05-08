@@ -7,6 +7,7 @@ import (
 
 	"github.com/astarlabs/bitcoin-go-api-client/dto/params"
 	"github.com/astarlabs/bitcoin-go-api-client/dto/result"
+	"github.com/astarlabs/bitcoin-go-api-client/http"
 
 	"strconv"
 
