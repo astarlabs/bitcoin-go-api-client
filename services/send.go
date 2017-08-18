@@ -37,7 +37,7 @@ func (send Send) SendOPReturnBase64(param params.SendOPReturnBase64Params) (*res
 	form.Add("coin", param.Coin)
 	form.Add("test", strconv.Itoa(param.Test))
 
-	response, err := httpservice.HTTPRequest(httpservice.POST, APIAddress+"/send/opreturn/base64", form)
+	response, err := httpservice.HTTPRequest(httpservice.POST, APIAddress().FullAddress+"/send/opreturn/base64", form)
 
 	if err != nil {
 		fmt.Println(err)
@@ -77,7 +77,7 @@ func (send Send) SendOPReturnString(param params.SendOPReturnStringParams) (*res
 	form.Add("coin", param.Coin)
 	form.Add("test", strconv.Itoa(param.Test))
 
-	response, err := httpservice.HTTPRequest(httpservice.POST, APIAddress+"/send/opreturn/string", form)
+	response, err := httpservice.HTTPRequest(httpservice.POST, APIAddress().FullAddress+"/send/opreturn/string", form)
 
 	if err != nil {
 		fmt.Println(err)
@@ -126,7 +126,7 @@ func (send Send) SendPayAddress(param params.SendPayAddressParams) (*result.Resu
 	form.Add("coin", param.Coin)
 	form.Add("test", strconv.Itoa(param.Test))
 
-	response, err := httpservice.HTTPRequest(httpservice.POST, APIAddress+"/send/payaddress", form)
+	response, err := httpservice.HTTPRequest(httpservice.POST, APIAddress().FullAddress+"/send/payaddress", form)
 
 	if err != nil {
 		fmt.Println(err)

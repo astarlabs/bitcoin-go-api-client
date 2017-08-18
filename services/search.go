@@ -31,7 +31,7 @@ func (search Search) SearchByRegisteredID(param params.SearchByRegisteredIDParam
 	form.Add("password", param.Password)
 	form.Add("id", param.ID)
 
-	response, err := httpservice.HTTPRequest(httpservice.POST, APIAddress+"/search/registered/id", form)
+	response, err := httpservice.HTTPRequest(httpservice.POST, APIAddress().FullAddress+"/search/registered/id", form)
 
 	if err != nil {
 		fmt.Println(err)
@@ -69,7 +69,7 @@ func (search Search) SearchByRegisteredContent(param params.SearchByRegisteredCo
 	form.Add("password", param.Password)
 	form.Add("content", param.Content)
 
-	response, err := httpservice.HTTPRequest(httpservice.POST, APIAddress+"/search/registered/content", form)
+	response, err := httpservice.HTTPRequest(httpservice.POST, APIAddress().FullAddress+"/search/registered/content", form)
 
 	if err != nil {
 		fmt.Println(err)
@@ -107,7 +107,7 @@ func (search Search) SearchByRegisteredHash(param params.SearchByRegisteredHashP
 	form.Add("password", param.Password)
 	form.Add("hash", param.Hash)
 
-	response, err := httpservice.HTTPRequest(httpservice.POST, APIAddress+"/search/registered/hash", form)
+	response, err := httpservice.HTTPRequest(httpservice.POST, APIAddress().FullAddress+"/search/registered/hash", form)
 
 	if err != nil {
 		fmt.Println(err)
