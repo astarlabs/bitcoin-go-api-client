@@ -2,24 +2,29 @@ package services
 
 import (
 	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"net/http"
 
 	"github.com/astarlabs/bitcoin-go-api-client/dto/result"
-	"github.com/astarlabs/bitcoin-go-api-client/http"
 )
 
-func APIAddress() result.ServerInfo {
-	response, err := httpservice.HTTPRequest(httpservice.GET, "https://astarlabs.github.io/bitcoin-client-server/server-info.json", nil)
+func APIAddress() string {
+	response, err := http.Get("https://astarlabs.github.io/bitcoin-client-server/server-info.json")
+	response.Header.Add("Content-Type", "application/json")
+
+	defer response.Body.Close()
 
 	if err != nil {
-		return result.ServerInfo{}
+		fmt.Println(err)
+		return ""
 	}
 
-	responseResult := result.ServerInfo{}
-	err = json.Unmarshal([]byte(response), &responseResult)
+	responseResult := []result.ServerInfo{}
 
-	if err != nil {
-		return result.ServerInfo{}
-	}
+	body, _ := ioutil.ReadAll(response.Body)
 
-	return responseResult
+	err = json.Unmarshal(body, &responseResult)
+
+	return responseResult[0].FullAddress
 }
