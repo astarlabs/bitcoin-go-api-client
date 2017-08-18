@@ -11,16 +11,19 @@ import (
 // HTTPRequest ...
 func HTTPRequest(URL string, form url.Values) (string, error) {
 
-	req, err := http.Post(URL, "application/x-www-form-urlencoded", strings.NewReader(form.Encode()))
+	client := &http.Client{}
+
+	req, err := http.NewRequest("POST", URL, strings.NewReader(form.Encode()))
+	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 
 	if err != nil {
 		fmt.Println(err)
 		return "", err
 	}
 
-	defer req.Body.Close()
+	response, _ := client.Do(req)
 
-	body, _ := ioutil.ReadAll(req.Body)
+	body, _ := ioutil.ReadAll(response.Body)
 
 	return string(body), nil
 

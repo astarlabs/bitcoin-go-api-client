@@ -28,7 +28,7 @@ func (search Search) SearchByRegisteredID(param params.SearchByRegisteredIDParam
 	form.Add("token", token)
 	form.Add("account", param.Account)
 	form.Add("user", param.User)
-	form.Add("password", param.Password)
+	form.Add("pass", param.Password)
 	form.Add("id", param.ID)
 
 	response, err := httpservice.HTTPRequest(APIAddress()+"/search/registered/id", form)
@@ -66,7 +66,7 @@ func (search Search) SearchByRegisteredContent(param params.SearchByRegisteredCo
 	form.Add("token", token)
 	form.Add("account", param.Account)
 	form.Add("user", param.User)
-	form.Add("password", param.Password)
+	form.Add("pass", param.Password)
 	form.Add("content", param.Content)
 
 	response, err := httpservice.HTTPRequest(APIAddress()+"/search/registered/content", form)
@@ -104,7 +104,7 @@ func (search Search) SearchByRegisteredHash(param params.SearchByRegisteredHashP
 	form.Add("token", token)
 	form.Add("account", param.Account)
 	form.Add("user", param.User)
-	form.Add("password", param.Password)
+	form.Add("pass", param.Password)
 	form.Add("hash", param.Hash)
 
 	response, err := httpservice.HTTPRequest(APIAddress()+"/search/registered/hash", form)
