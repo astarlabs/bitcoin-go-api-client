@@ -56,6 +56,29 @@ func (send SendSample) SendOPReturnString() {
 
 }
 
+func (send SendSample) SendOPReturnHash() {
+
+	thisSend := new(services.Send)
+
+	params := new(params.SendOPReturnHashParams)
+	params.Account = "1"
+	params.User = "test"
+	params.Password = "test"
+	params.Hash = "c5465a5179305be16febb49b23e11422237adb8b518e63777f804cd8679198b9"
+	params.Coin = "bitcoin" // bitcoin / litecoin / ethereum
+	params.Test = 1         // 1 test / 0 production
+	params.PrivateKey = "***************************************************"
+
+	result, err := thisSend.SendOPReturnHash(*params)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(result)
+
+}
+
 func (send SendSample) SendPayAddress() {
 
 	thisSend := new(services.Send)

@@ -97,6 +97,46 @@ func (send Send) SendOPReturnString(param params.SendOPReturnStringParams) (*res
 
 }
 
+// SendOPReturnHash ...
+func (send Send) SendOPReturnHash(param params.SendOPReturnHashParams) (*result.ResultDTO, error) {
+
+	form := url.Values{}
+
+	token, err := pktoken.SignMessage(param.PrivateKey)
+
+	if err != nil {
+		fmt.Println(err)
+		return nil, err
+	}
+
+	form.Add("token", token)
+	form.Add("account", param.Account)
+	form.Add("user", param.User)
+	form.Add("pass", param.Password)
+	form.Add("hash", param.Hash)
+	form.Add("coin", param.Coin)
+	form.Add("test", strconv.Itoa(param.Test))
+
+	response, err := httpservice.HTTPRequest(APIAddress()+"/send/opreturn/hash", form)
+
+	if err != nil {
+		fmt.Println(err)
+		return nil, err
+	}
+
+	result := result.ResultDTO{}
+
+	err = json.Unmarshal([]byte(response), &result)
+
+	if err != nil {
+		fmt.Println(err)
+		return nil, err
+	}
+
+	return &result, nil
+
+}
+
 // SendPayAddress ...
 func (send Send) SendPayAddress(param params.SendPayAddressParams) (*result.ResultDTO, error) {
 
